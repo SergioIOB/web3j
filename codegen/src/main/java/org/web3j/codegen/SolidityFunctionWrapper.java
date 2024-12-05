@@ -1958,9 +1958,7 @@ public class SolidityFunctionWrapper extends Generator {
             Map<String, Integer> eventsCount
     )
             throws ClassNotFoundException {
-        String functionName = functionDefinition.getName();
         List<AbiDefinition.NamedType> inputs = functionDefinition.getInputs();
-        String responseClassName = Strings.capitaliseFirstLetter(functionName) + "EventResponse";
 
         List<NamedTypeName> parameters = new ArrayList<>();
         List<NamedTypeName> indexedParameters = new ArrayList<>();
@@ -1985,11 +1983,15 @@ public class SolidityFunctionWrapper extends Generator {
             parameters.add(parameter);
         }
 
+        String functionName = functionDefinition.getName();
+
         classBuilder.addField(createEventDefinition(
                 functionName, parameters, eventsCount, functionDefinition
         ));
 
         functionName = functionDefinition.getName();
+
+        String responseClassName = Strings.capitaliseFirstLetter(functionName) + "EventResponse";
 
         classBuilder.addType(
                 buildEventResponseObject(

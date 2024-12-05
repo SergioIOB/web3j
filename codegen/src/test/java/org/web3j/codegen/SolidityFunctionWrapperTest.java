@@ -978,12 +978,12 @@ public class SolidityFunctionWrapperTest extends TempFileProvider {
                         "      java.util.Arrays.<org.web3j.abi.TypeReference<?>>asList(new org.web3j.abi.TypeReference<org.web3j.abi.datatypes.Address>() {}, new org.web3j.abi.TypeReference<org.web3j.abi.datatypes.Utf8String>() {}, new org.web3j.abi.TypeReference<org.web3j.abi.datatypes.Bool>() {}));\n" +
                         "  ;\n" +
                         "\n" +
-                        "  public static java.util.List<EventNameEventResponse> getEventName1Events(\n" +
+                        "  public static java.util.List<EventName1EventResponse> getEventName1Events(\n" +
                         "      org.web3j.protocol.core.methods.response.TransactionReceipt transactionReceipt) {\n" +
                         "    java.util.List<org.web3j.tx.Contract.EventValuesWithLog> valueList = staticExtractEventParametersWithLog(EVENTNAME1_EVENT, transactionReceipt);\n" +
-                        "    java.util.ArrayList<EventNameEventResponse> responses = new java.util.ArrayList<EventNameEventResponse>(valueList.size());\n" +
+                        "    java.util.ArrayList<EventName1EventResponse> responses = new java.util.ArrayList<EventName1EventResponse>(valueList.size());\n" +
                         "    for (org.web3j.tx.Contract.EventValuesWithLog eventValues : valueList) {\n" +
-                        "      EventNameEventResponse typedResponse = new EventNameEventResponse();\n" +
+                        "      EventName1EventResponse typedResponse = new EventName1EventResponse();\n" +
                         "      typedResponse.log = eventValues.getLog();\n" +
                         "      typedResponse.action = (java.lang.String) eventValues.getNonIndexedValues().get(0).getValue();\n" +
                         "      typedResponse.pauseState = (java.lang.Boolean) eventValues.getNonIndexedValues().get(1).getValue();\n" +
@@ -992,22 +992,22 @@ public class SolidityFunctionWrapperTest extends TempFileProvider {
                         "    return responses;\n" +
                         "  }\n" +
                         "\n" +
-                        "  public static EventNameEventResponse getEventName1EventFromLog(\n" +
+                        "  public static EventName1EventResponse getEventName1EventFromLog(\n" +
                         "      org.web3j.protocol.core.methods.response.Log log) {\n" +
                         "    org.web3j.tx.Contract.EventValuesWithLog eventValues = staticExtractEventParametersWithLog(EVENTNAME1_EVENT, log);\n" +
-                        "    EventNameEventResponse typedResponse = new EventNameEventResponse();\n" +
+                        "    EventName1EventResponse typedResponse = new EventName1EventResponse();\n" +
                         "    typedResponse.log = log;\n" +
                         "    typedResponse.action = (java.lang.String) eventValues.getNonIndexedValues().get(0).getValue();\n" +
                         "    typedResponse.pauseState = (java.lang.Boolean) eventValues.getNonIndexedValues().get(1).getValue();\n" +
                         "    return typedResponse;\n" +
                         "  }\n" +
                         "\n" +
-                        "  public io.reactivex.Flowable<EventNameEventResponse> eventName1EventFlowable(\n" +
+                        "  public io.reactivex.Flowable<EventName1EventResponse> eventName1EventFlowable(\n" +
                         "      org.web3j.protocol.core.methods.request.EthFilter filter) {\n" +
                         "    return web3j.ethLogFlowable(filter).map(log -> getEventName1EventFromLog(log));\n" +
                         "  }\n" +
                         "\n" +
-                        "  public io.reactivex.Flowable<EventNameEventResponse> eventName1EventFlowable(\n" +
+                        "  public io.reactivex.Flowable<EventName1EventResponse> eventName1EventFlowable(\n" +
                         "      org.web3j.protocol.core.DefaultBlockParameter startBlock,\n" +
                         "      org.web3j.protocol.core.DefaultBlockParameter endBlock) {\n" +
                         "    org.web3j.protocol.core.methods.request.EthFilter filter = new org.web3j.protocol.core.methods.request.EthFilter(startBlock, endBlock, getContractAddress());\n" +
@@ -1054,7 +1054,7 @@ public class SolidityFunctionWrapperTest extends TempFileProvider {
                         "    return eventNameEventFlowable(filter);\n" +
                         "  }\n" +
                         "\n" +
-                        "  public static class EventNameEventResponse extends org.web3j.protocol.core.methods.response.BaseEventResponse {\n" +
+                        "  public static class EventName1EventResponse extends org.web3j.protocol.core.methods.response.BaseEventResponse {\n" +
                         "    public java.lang.String action;\n" +
                         "\n" +
                         "    public java.lang.Boolean pauseState;\n" +
